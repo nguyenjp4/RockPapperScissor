@@ -30,14 +30,29 @@
         ? 'You Win! Rock Beats Scissors': 
     (playerSelection == 'rock' && computerSelection == 'rock')
         ? "It's a Tie!": 
-        'Please enter a valid option';
-                
-        console.log(result);
+    (playerSelection == 'paper' && computerSelection == 'rock')
+        ? 'You Win! Paper Beats Rock':   
+    (playerSelection == 'paper' && computerSelection == 'scissor')
+        ?  'You Lose! Scissor Beats Paper':   
+    (playerSelection == 'paper' && computerSelection == 'paper')
+        ?   "It's a Tie!":
+    (playerSelection == 'scissors' && computerSelection == 'rock')
+        ?    "You Lose! Rock Beats Scissors":
+    (playerSelection == 'scissors' && computerSelection == 'scissors')
+        ?    "It's a Tie!":
+    (playerSelection == 'scissors' && computerSelection == 'paper')
+        ?    "You Win! Scissor Beats Paper":
+    'Please enter a valid option';
+                alert(result)
     }      
 
-    const playerSelection = prompt("Enter rock, paper, or scissors")
-    const computerSelection = computerPlay()
+    let userInput = prompt("Enter rock, paper, or scissors")
+    let playerSelection = userInput.toLowerCase();
+    let comp = computerPlay()
+    let computerSelection = comp.toLowerCase();
     console.log(playRound(playerSelection, computerSelection))
+
+    
 </script>
 
 </body>
