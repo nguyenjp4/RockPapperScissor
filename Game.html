@@ -149,16 +149,20 @@ const playerScore = 0
 const computerScore = 0
 if (score1 == 'You Lose! Paper Beats Rock' ||'You Lose! Scissor Beats Paper'||"You Lose! Rock Beats Scissors")
 {
-let updateScore1 = computerScore + 1
-let updateScoreplayer1 = playerScore
-let finalScore = "The Computers score is: " + updateScore1 + " The Players score is: " + updateScoreplayer1
-return finalScore
+let updateScoreWin = computerScore + 1
+let updateScoreplayerLose = playerScore
+let finalScoreLose = "The Computers score is: " + updateScoreWin + " The Players score is: " + updateScoreplayerLose
+return finalScoreLose
 }
-//else if (score1 == 'You Win! Rock Beats Scissors' || 'You Win! Paper Beats Rock' || "You Win! Scissor Beats Paper")
-//{
-
-
-//}
+else if (score1 == 'You Win! Rock Beats Scissors' || 'You Win! Paper Beats Rock' || "You Win! Scissor Beats Paper")
+{
+let updateScoreLose = computerScore
+let updateScorePlayerWin = playerScore + 1
+let finalScoreWin = "The Computers score is: " + updateScoreLose + " The Players score is: " + updateScorePlayerWin
+return finalScoreWin
+}
+else 
+console.log("The Computers score is: " + computerScore + " The Players score is: " + playerScore)
 }
 function scoreOutput(board){
 console.log(board)
