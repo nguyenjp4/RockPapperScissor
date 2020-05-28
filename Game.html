@@ -5,23 +5,14 @@
     <title>Rock, Paper, Scissors!</title>
 </head>
 <body>
-<p>Round 1 </p>
-<p id = "ComputerChose"></p>
-<p1 id = "Player"> </p1>
-<p>Round 2</p>
-<p id = "ComputerChose1"></p>
-<p id = "Player1"></p>
-<p>Round 3</p>
-<p id = "ComputerChose2"></p>
-<p id = "Player2"></p>
-<h1>ScoreBoard</h1>
+
 <script >
    function computerPlay()
    {
     
     var options = [
-        "rock", 
-        "paper", 
+        "paper",
+        "rock",
         "scissors"
        ];
     var randomOption = options[Math.floor(Math.random()*options.length)];
@@ -31,151 +22,62 @@
     }
     function playRound(playerSelection, computerSelection)
     {
-  
-    let result = 
-    (playerSelection == 'rock' && computerSelection == 'paper')
-        ? 'You Lose! Paper Beats Rock':
-    (playerSelection == 'rock' && computerSelection == 'scissors')
-        ? 'You Win! Rock Beats Scissors': 
-    (playerSelection == 'rock' && computerSelection == 'rock')
-        ? "It's a Tie!": 
-    (playerSelection == 'paper' && computerSelection == 'rock')
-        ? 'You Win! Paper Beats Rock':   
-    (playerSelection == 'paper' && computerSelection == 'scissors')
-        ?  'You Lose! Scissor Beats Paper':   
-    (playerSelection == 'paper' && computerSelection == 'paper')
-        ?   "It's a Tie!":
-    (playerSelection == 'scissors' && computerSelection == 'rock')
-        ?    "You Lose! Rock Beats Scissors":
-    (playerSelection == 'scissors' && computerSelection == 'scissors')
-        ?    "It's a Tie!":
-    (playerSelection == 'scissors' && computerSelection == 'paper')
-        ?    "You Win! Scissor Beats Paper":
-    'Please enter a valid option';
-                return result
+
+  if (playerSelection === computerSelection){
+
+      return "It's a Tie!"
+  }
+  else if (((playerSelection == "rock") && (computerSelection === "scissors"))|| ((playerSelection == "paper") && (computerSelection == "rock"))|| ((playerSelection == "scissors")&& (computerSelection == "paper")))
+        {
+    
+        return "You Win!"
     }      
-
-    function Input()
+    else if (((playerSelection == "rock") && (computerSelection ==="paper")) ||((playerSelection == "scissors") && (computerSelection == "rock"))|| ((playerSelection == "paper") && (computerSelection == "scissors")))
     {
-    let playerInput = prompt('Enter rock, paper, or scissors')
-    let playerInput1 = playerInput.toLowerCase();
-    return playerInput1
+       
+        return "You Lose!"
+
     }
+    else
+        return "Please pick a valid option"
+    }
+   
     
     
-    let playerSelection = Input()
- 
-    let computerSelection = computerPlay()
-    document.getElementById("ComputerChose").innerHTML = 'The computer chose: ' + computerSelection
-    document.getElementById("Player").innerHTML = 'You chose: ' + playerSelection
-    let round = playRound(playerSelection,computerSelection)
-function game(round,round1,round2)
+  
+
+function game()
  {
-console.log("The 1st round result is: " + round)
-console.log("The 2nd round result is: " + round1)
-console.log("The 3rd round result is: "+ round2)
+let playerScore = 0;
+let compScore = 0;
 
- }
-        function playRound1(playerSelection1, computerSelection1){
-        
-            let result1 = 
-    (playerSelection1 == 'rock' && computerSelection1 == 'paper')
-        ? 'You Lose! Paper Beats Rock':
-    (playerSelection1 == 'rock' && computerSelection1 == 'scissors')
-        ? 'You Win! Rock Beats Scissors': 
-    (playerSelection1 == 'rock' && computerSelection1 == 'rock')
-        ? "It's a Tie!": 
-    (playerSelection1 == 'paper' && computerSelection1 == 'rock')
-        ? 'You Win! Paper Beats Rock':   
-    (playerSelection1 == 'paper' && computerSelection1 == 'scissors')
-        ?  'You Lose! Scissor Beats Paper':   
-    (playerSelection1 == 'paper' && computerSelection1 == 'paper')
-        ?   "It's a Tie!":
-    (playerSelection1 == 'scissors' && computerSelection1 == 'rock')
-        ?    "You Lose! Rock Beats Scissors":
-    (playerSelection1 == 'scissors' && computerSelection1 == 'scissors')
-        ?    "It's a Tie!":
-    (playerSelection1 == 'scissors' && computerSelection1 == 'paper')
-        ?    "You Win! Scissor Beats Paper":
-    'Please enter a valid option';
-                return result1
+for (let i = 0; i < 5; i++) {
 
-
-        }
-    let playerSelection1 = Input();
-    let comp1 = computerPlay()
-    let computerSelection1 = comp1.toLowerCase();
-    let round1 = playRound1(playerSelection1,computerSelection1)    
-    document.getElementById("ComputerChose1").innerHTML = 'The computer chose: ' + computerSelection1
-    document.getElementById("Player1").innerHTML = 'You chose: ' + playerSelection1
-    function playRound2(playerSelection2, computerSelection2){
-        
-        let result2 = 
-(playerSelection2 == 'rock' && computerSelection2 == 'paper')
-    ? 'You Lose! Paper Beats Rock':
-(playerSelection2 == 'rock' && computerSelection2 == 'scissors')
-    ? 'You Win! Rock Beats Scissors': 
-(playerSelection2 == 'rock' && computerSelection2 == 'rock')
-    ? "It's a Tie!": 
-(playerSelection2 == 'paper' && computerSelection2 == 'rock')
-    ? 'You Win! Paper Beats Rock':   
-(playerSelection2 == 'paper' && computerSelection2 == 'scissors')
-    ?  'You Lose! Scissor Beats Paper':   
-(playerSelection2 == 'paper' && computerSelection2 == 'paper')
-    ?   "It's a Tie!":
-(playerSelection2 == 'scissors' && computerSelection2 == 'rock')
-    ?    "You Lose! Rock Beats Scissors":
-(playerSelection2 == 'scissors' && computerSelection2 == 'scissors')
-    ?    "It's a Tie!":
-(playerSelection2 == 'scissors' && computerSelection2 == 'paper')
-    ?    "You Win! Scissor Beats Paper":
-'Please enter a valid option';
-            return result2
-
-
+    const playerSelection = prompt("Enter rock, paper, or scissors")
+    const computerSelection = computerPlay()
+    let result = playRound(playerSelection, computerSelection);
+    console.log(result);
+    if (result === "You Win!") {
+        ++playerScore
     }
-let playerSelection2 = Input();
-let comp2 = computerPlay()
-let computerSelection2 = comp2.toLowerCase();
-let round2 = playRound2(playerSelection2,computerSelection2)    
-document.getElementById("ComputerChose2").innerHTML = 'The computer chose: ' + computerSelection1
-document.getElementById("Player2").innerHTML = 'You chose: ' + playerSelection1
-
-
-
-function keepScore(score1,score2,score3){
-
-const playerScore = 0
-const computerScore = 0
-if (score1 == 'You Lose! Paper Beats Rock' ||'You Lose! Scissor Beats Paper'||"You Lose! Rock Beats Scissors")
-{
-let updateScoreWin = computerScore + 1
-let updateScoreplayerLose = playerScore
-let finalScoreLose = "The Computers score is: " + updateScoreWin + " The Players score is: " + updateScoreplayerLose
-return finalScoreLose
-}
-else if (score1 == 'You Win! Rock Beats Scissors' || 'You Win! Paper Beats Rock' || "You Win! Scissor Beats Paper")
-{
-let updateScoreLose = computerScore
-let updateScorePlayerWin = playerScore + 1
-let finalScoreWin = "The Computers score is: " + updateScoreLose + " The Players score is: " + updateScorePlayerWin
-return finalScoreWin
-}
-else 
-console.log("The Computers score is: " + computerScore + " The Players score is: " + playerScore)
-}
-function scoreOutput(board){
-console.log(board)
-}
-
-let score1 = playRound()
-let score2 = playRound1()
-let score3 = playRound2()
-let board = keepScore(score1)
-scoreOutput(board)
-game(round, round1,round2)
- 
+    else if (result === "You Lose!"){
+        ++compScore
+    }
     
+   
+}
+
+console.log ("Player score: " + playerScore + " Computer score: "+ compScore)
+
+}
+
+game()
+
+
+
+
+
+
 </script>
 
 </body>
